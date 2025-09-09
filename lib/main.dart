@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'src/core/theme/theme.dart';
 import 'src/future/home/view/home_view.dart';
 
 
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Firebase Flow',
+      theme: AppTheme.theme,
       home: HomeView(),
     );
   }
