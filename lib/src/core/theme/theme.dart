@@ -1,3 +1,4 @@
+import 'package:firebase_flow/src/core/constants/margin.dart';
 import 'package:firebase_flow/src/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -15,20 +16,21 @@ class AppTheme {
     ),
     cardTheme: CardThemeData(
       color: AppColors.blackBeauty,
-      margin: EdgeInsets.all(8),
+
+      margin: Margins.messageCardMargin,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadiuses.messageCardBorderRadius,
+        side: BorderSide(
+      color: AppColors.bluishGreen, // Border rəngi
+      width: 1.0,         // Border qalınlığı
+    ),
       ),
     ),
     hintColor: AppColors.fragrantWand,
 
-    iconTheme: IconThemeData(
-      color: AppColors.fragrantWand
-    ),
+    iconTheme: IconThemeData(color: AppColors.fragrantWand),
     iconButtonTheme: IconButtonThemeData(
-
       style: IconButton.styleFrom(
-
         backgroundColor: AppColors.blackBeauty,
         foregroundColor: AppColors.blackBeauty,
         side: BorderSide(
@@ -40,7 +42,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.fragrantWand),
- fillColor: AppColors.blackBeauty,
+      fillColor: AppColors.blackBeauty,
       filled: true,
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadiuses.textFieldBorderRadius,

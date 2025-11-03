@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'src/core/theme/theme.dart';
-import 'src/future/home/view/home_view.dart';
+import 'src/future/chat/view/home_view.dart';
 
 
 void main(){

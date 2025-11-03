@@ -27,7 +27,6 @@ class _MessageTextFieldState extends State<MessageTextField> {
           ).colorScheme.onTertiary,
           decoration: InputDecoration(
             hintText: 'Type a message',
-
             hintStyle: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
