@@ -16,18 +16,16 @@ class AppTheme {
     ),
     cardTheme: CardThemeData(
       color: AppColors.blackBeauty,
-
       margin: Margins.messageCardMargin,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiuses.messageCardBorderRadius,
         side: BorderSide(
-      color: AppColors.bluishGreen, // Border rəngi
-      width: 1.0,         // Border qalınlığı
+      color: AppColors.bluishGreen,
+      width: 1.0,         
     ),
       ),
     ),
     hintColor: AppColors.fragrantWand,
-
     iconTheme: IconThemeData(color: AppColors.fragrantWand),
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(

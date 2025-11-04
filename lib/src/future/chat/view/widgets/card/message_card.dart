@@ -1,3 +1,4 @@
+import 'package:firebase_flow/src/core/utils/enums/device_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,12 +8,12 @@ import '../../../../../core/utils/snackbars/snackbar_manager.dart';
 
 class MessageCard extends StatelessWidget {
   final String message;
-  final String date;
-  final bool isPhoneMesaage;
+  final DateTime date;
+  final DeviceType deviceType;
   const MessageCard({
     required this.message,
     required this.date,
-    required this.isPhoneMesaage,
+    required this.deviceType,
     super.key,
   });
 
@@ -28,12 +29,12 @@ class MessageCard extends StatelessWidget {
         SnackbarManager.showSnackBar(context, "Text Coppied to clipborad");
       },
       child: Row(
-        mainAxisAlignment: isPhoneMesaage
+        mainAxisAlignment: deviceType==DeviceType.phone
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          isPhoneMesaage ? Text(date) : SizedBox.shrink(),
+          deviceType==DeviceType.phone ? Text(date.toString()) : SizedBox.shrink(),
           ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth:
@@ -42,14 +43,14 @@ class MessageCard extends StatelessWidget {
             ),
             child: Card(
               child: Padding(
-                padding: isPhoneMesaage
+                padding: deviceType==DeviceType.phone
                     ? Paddings.phoneMesaggeCardPadding
                     : Paddings.computerMesaggeCardPadding,
                 child: SelectableText(message),
               ),
             ),
           ),
-          isPhoneMesaage ? SizedBox.shrink() : Text(date),
+          deviceType==DeviceType.phone ? SizedBox.shrink() : Text(date.toString()),
         ],
       ),
     );

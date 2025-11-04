@@ -1,8 +1,5 @@
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
-
 import '../../../../../core/constants/padding.dart';
+import 'package:flutter/material.dart';
 
 class SendButton extends StatelessWidget {
   const SendButton({super.key, required this.message});

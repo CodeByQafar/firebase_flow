@@ -1,4 +1,5 @@
 import 'package:firebase_flow/src/core/constants/padding.dart';
+import 'package:firebase_flow/src/core/utils/enums/device_type.dart';
 import 'package:firebase_flow/src/future/chat/view/widgets/button/send_button.dart';
 import 'package:firebase_flow/src/future/chat/view/widgets/card/message_card.dart';
 import 'package:firebase_flow/src/future/chat/view/widgets/text_fields/message_text_field.dart';
@@ -31,20 +32,20 @@ class _HomeViewState extends State<HomeView> {
                     MessageCard(
                       message:
                           "This message is sent from computer This message is sent from computer",
-                      date: "14:23",
-                      isPhoneMesaage: false,
+                      date: DateTime(12),
+                      deviceType: DeviceType.computer,
                     ),
                     MessageCard(
                       message:
                           "This message is sent from computer This message is sent from computer",
-                      date: "14:23",
-                      isPhoneMesaage: false,
+                      date: DateTime(12),
+                      deviceType: DeviceType.computer,
                     ),
 
                     MessageCard(
                       message: 'This message is sent from mobile message is sent from mobile',
-                      date: "14:23",
-                      isPhoneMesaage: true,
+                      date: DateTime(12),
+                      deviceType: DeviceType.phone,
                     ),
                   ],
                 ),

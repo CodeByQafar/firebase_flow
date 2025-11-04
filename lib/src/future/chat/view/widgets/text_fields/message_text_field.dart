@@ -19,7 +19,6 @@ class _MessageTextFieldState extends State<MessageTextField> {
           onChanged: (value) {
             setState(() {
               widget.textEditingController.text = value;
-
             });
           },
           cursorColor: Theme.of(
