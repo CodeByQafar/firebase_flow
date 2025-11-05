@@ -5,6 +5,8 @@ import 'package:firebase_flow/src/future/chat/view/widgets/card/message_card.dar
 import 'package:firebase_flow/src/future/chat/view/widgets/text_fields/message_text_field.dart';
 import 'package:flutter/material.dart';
 
+import '../view model/chat_view_model.dart';
+
 class HomeView extends StatefulWidget {
   HomeView({super.key});
 
@@ -14,7 +16,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final TextEditingController textEditingController = TextEditingController();
-
+  final ChatViewModel viewModel = ChatViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,19 +34,20 @@ class _HomeViewState extends State<HomeView> {
                     MessageCard(
                       message:
                           "This message is sent from computer This message is sent from computer",
-                      date: DateTime(12),
+                      date: DateTime.now(),
                       deviceType: DeviceType.computer,
                     ),
                     MessageCard(
                       message:
                           "This message is sent from computer This message is sent from computer",
-                      date: DateTime(12),
+                      date: DateTime.now(),
                       deviceType: DeviceType.computer,
                     ),
 
                     MessageCard(
-                      message: 'This message is sent from mobile message is sent from mobile',
-                      date: DateTime(12),
+                      message:
+                          'This message is sent from mobile message is sent from mobile',
+                      date: DateTime.now(),
                       deviceType: DeviceType.phone,
                     ),
                   ],
@@ -60,7 +63,10 @@ class _HomeViewState extends State<HomeView> {
                       MessageTextField(
                         textEditingController: textEditingController,
                       ),
-                      SendButton(message: textEditingController.text),
+                      SendButton(
+                        message: textEditingController,
+                        sendMessageFunction: viewModel.sendMessage,
+                      ),
                     ],
                   ),
                 ],
