@@ -1,4 +1,3 @@
-import 'package:firebase_flow/src/core/constants/padding.dart';
 import 'package:firebase_flow/src/core/utils/enums/device_type.dart';
 import 'package:firebase_flow/src/future/chat/view/widgets/button/send_button.dart';
 import 'package:firebase_flow/src/future/chat/view/widgets/card/message_card.dart';
@@ -8,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../view model/chat_view_model.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();

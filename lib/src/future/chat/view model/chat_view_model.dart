@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_flow/src/core/utils/services/env_service.dart';
 import 'package:firebase_flow/src/future/chat/model/message_model.dart';
 import 'package:mobx/mobx.dart';
-import 'dart:io';
 
 import '../service/chat_service.dart';
 
@@ -11,7 +11,7 @@ part 'chat_view_model.g.dart';
 class ChatViewModel = _ChatViewModelBase with _$ChatViewModel;
 
 abstract class _ChatViewModelBase with Store {
-  static String baseUrl = "";
+  static String baseUrl = EnvService.baseUrl;
 
   IChatService chatService = ChatService(
     dio: Dio(BaseOptions(baseUrl: baseUrl)),

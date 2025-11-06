@@ -14,7 +14,7 @@ class ChatService implements IChatService {
   @override
   Future<dynamic> sendMessage(MessageModel message) async {
     try {
-      final response = await dio.post(baseUrl, data: message.toJson());
+      final response = await dio.put(baseUrl, data: message.toJson());
       return response;
     } catch (e) {
       return ResponseModel(false);

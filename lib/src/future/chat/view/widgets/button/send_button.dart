@@ -4,10 +4,14 @@ import '../../../../../core/constants/padding.dart';
 import 'package:flutter/material.dart';
 
 class SendButton extends StatefulWidget {
-   TextEditingController message;
-    Function(MessageModel) sendMessageFunction;
+  final TextEditingController message;
+  final Function(MessageModel) sendMessageFunction;
 
-  SendButton({required this.message, required this.sendMessageFunction, super.key});
+  const SendButton({
+    required this.message,
+    required this.sendMessageFunction,
+    super.key,
+  });
 
   @override
   State<SendButton> createState() => _SendButtonState();
@@ -21,14 +25,15 @@ class _SendButtonState extends State<SendButton> {
       child: IconButton(
         alignment: Alignment.center,
         padding: Paddings.iconButtonContentPadding,
-        onPressed:(){
+        onPressed: () {
           widget.sendMessageFunction(
-          MessageModel(
-            message: widget.message.text,
-            date: DateTime.now(),
-            deviceType: DeviceType.computer,
-          ),
-        );}, 
+            MessageModel(
+              message: widget.message.text,
+              date: DateTime.now(),
+              deviceType: DeviceType.computer,
+            ),
+          );
+        },
         icon: Icon(
           Icons.send,
           size: 20,
