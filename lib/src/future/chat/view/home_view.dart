@@ -48,6 +48,11 @@ class _HomeViewState extends State<HomeView> {
                           'This message is sent from mobile message is sent from mobile',
                       date: DateTime.now(),
                       deviceType: DeviceType.phone,
+                    ),     MessageCard(
+                      message:
+                          "This message is sent from computer This message is sent from computer",
+                      date: DateTime.now(),
+                      deviceType: DeviceType.computer,
                     ),
                   ],
                 ),

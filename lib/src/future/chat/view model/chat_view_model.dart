@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_flow/src/core/utils/enums/api_endpoints.dart';
 import 'package:firebase_flow/src/core/utils/services/env_service.dart';
 import 'package:firebase_flow/src/future/chat/model/message_model.dart';
 import 'package:mobx/mobx.dart';
@@ -23,7 +24,8 @@ abstract class _ChatViewModelBase with Store {
 
   @action
   void sendMessage(MessageModel message) {
-    chatService.sendMessage(message);
+    print(baseUrl);
+    chatService.fetchMessages();
   }
 
 

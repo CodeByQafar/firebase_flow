@@ -1,4 +1,4 @@
 class ResponseModel {
   bool isSuccses;
-  ResponseModel (this.isSuccses);
+  ResponseModel ({required this.isSuccses});
 }

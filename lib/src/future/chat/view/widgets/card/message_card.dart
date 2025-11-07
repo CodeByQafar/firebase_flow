@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../../../../../core/constants/boxconstrants.dart';
 import '../../../../../core/constants/padding.dart';
+import '../../../../../core/utils/extension/date_time_extension.dart';
 import '../../../../../core/utils/snackbars/snackbar_manager.dart';
 
 class MessageCard extends StatelessWidget {
@@ -29,12 +30,12 @@ class MessageCard extends StatelessWidget {
         SnackbarManager.showSnackBar(context, "Text Coppied to clipborad");
       },
       child: Row(
-        mainAxisAlignment: deviceType==DeviceType.phone
+        mainAxisAlignment: deviceType==DeviceTypeInfo.currentDeviceType()
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          deviceType==DeviceType.phone ? Text(date.toString()) : SizedBox.shrink(),
+          deviceType==DeviceTypeInfo.currentDeviceType() ? Text(TimeFormat.formatTimeHM(date)) : SizedBox.shrink(),
           ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth:
@@ -43,14 +44,14 @@ class MessageCard extends StatelessWidget {
             ),
             child: Card(
               child: Padding(
-                padding: deviceType==DeviceType.phone
+                padding: deviceType==DeviceTypeInfo.currentDeviceType()
                     ? Paddings.phoneMesaggeCardPadding
                     : Paddings.computerMesaggeCardPadding,
                 child: SelectableText(message),
               ),
             ),
           ),
-          deviceType==DeviceType.phone ? SizedBox.shrink() : Text(date.toString()),
+          deviceType==DeviceTypeInfo.currentDeviceType() ? SizedBox.shrink() : Text(TimeFormat.formatTimeHM(date)) ,
         ],
       ),
     );

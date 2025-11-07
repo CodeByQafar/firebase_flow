@@ -5,8 +5,8 @@ import 'src/core/theme/theme.dart';
 import 'src/future/chat/view/home_view.dart';
 
 
-void main(){
-  EnvService.envLoad();
+void main() async { 
+ await EnvService.envLoad();
   runApp(const MyApp());
 }
 
