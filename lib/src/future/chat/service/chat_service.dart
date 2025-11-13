@@ -7,7 +7,7 @@ import 'package:firebase_flow/src/future/chat/model/message_model.dart';
 import 'package:firebase_flow/src/future/chat/model/response_model.dart';
 
 import '../../../core/utils/enums/api_endpoints.dart';
-import '../../../core/utils/enums/device_type.dart';
+
 
 abstract class IChatService {
   Future<dynamic> sendMessage(MessageModel message);
@@ -50,7 +50,6 @@ class ChatService implements IChatService {
 
   Future<void> _connectSocket() async {
     try {
-      // Məsələn: ws://yourserver.com/ws/chat
       _socket = await WebSocket.connect("$baseUrl${ApiEndpoints.messages.name}.json");
 
       _socket!.listen(
