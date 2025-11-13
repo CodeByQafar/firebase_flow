@@ -1,11 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:firebase_flow/src/core/utils/enums/api_endpoints.dart';
 import 'package:firebase_flow/src/core/utils/services/env_service.dart';
 import 'package:firebase_flow/src/future/chat/model/message_model.dart';
-import 'package:mobx/mobx.dart';
-
 import '../service/chat_service.dart';
-
+import 'package:mobx/mobx.dart';
+import 'package:dio/dio.dart';
 part 'chat_view_model.g.dart';
 
 // ignore: library_private_types_in_public_api
@@ -24,9 +21,11 @@ abstract class _ChatViewModelBase with Store {
 
   @action
   void sendMessage(MessageModel message) {
-    print(baseUrl);
-    chatService.fetchMessages();
+    chatService.sendMessage(message);
   }
 
-
+  @action
+Stream<List<MessageModel>> listenMessages() {
+    return chatService.listenMessages();
+  }
 }

@@ -4,10 +4,11 @@ import 'package:firebase_flow/src/future/chat/view/widgets/card/message_card.dar
 import 'package:firebase_flow/src/future/chat/view/widgets/text_fields/message_text_field.dart';
 import 'package:flutter/material.dart';
 
+import '../model/message_model.dart';
 import '../view model/chat_view_model.dart';
 
 class HomeView extends StatefulWidget {
-const HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -25,36 +26,30 @@ class _HomeViewState extends State<HomeView> {
           width: double.infinity,
           child: Stack(
             children: [
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MessageCard(
-                      message:
-                          "This message is sent from computer This message is sent from computer",
-                      date: DateTime.now(),
-                      deviceType: DeviceType.computer,
-                    ),
-                    MessageCard(
-                      message:
-                          "This message is sent from computer This message is sent from computer",
-                      date: DateTime.now(),
-                      deviceType: DeviceType.computer,
-                    ),
-
-                    MessageCard(
-                      message:
-                          'This message is sent from mobile message is sent from mobile',
-                      date: DateTime.now(),
-                      deviceType: DeviceType.phone,
-                    ),     MessageCard(
-                      message:
-                          "This message is sent from computer This message is sent from computer",
-                      date: DateTime.now(),
-                      deviceType: DeviceType.computer,
-                    ),
-                  ],
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: StreamBuilder<List<MessageModel>>(
+                    stream: viewModel.listenMessages(),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData)
+                        return Center(child: CircularProgressIndicator());
+                
+                      final messages = snapshot.data!;
+                      return ListView.builder(
+                        itemCount: messages.length,
+                        itemBuilder: (context, index) {
+                          final model = messages[index];
+                
+                          return MessageCard(
+                            message: model.message,
+                            date: model.date,
+                            deviceType: model.deviceType,
+                          ); // Animates rank changes smoothly
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
               Column(
